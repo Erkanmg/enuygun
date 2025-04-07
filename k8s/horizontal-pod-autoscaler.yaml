@@ -1,0 +1,18 @@
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: nginx-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: nginx-deployment  # Bu HPA nginx deployment'ını hedef alacak
+  minReplicas: 1  # En az 1 pod olmalı
+  maxReplicas: 3  # Maksimum 3 pod olacak
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 25  # CPU kullanımı %25 olursa ölçeklenecek

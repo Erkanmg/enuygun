@@ -1,7 +1,6 @@
 *.tfstate
 *.tfstate.backup
 .terraform/
-terraform.tfvars
 
 *.json
 kubeconfig.yaml
@@ -9,3 +8,6 @@ kubeconfig.yaml
 
 .vscode/
 .DS_Store
+
+
+k8s/istio-1.25.1/
